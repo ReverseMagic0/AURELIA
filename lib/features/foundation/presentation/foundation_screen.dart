@@ -118,45 +118,110 @@ class _AppearanceControl extends ConsumerWidget {
           spacing: AureliaSpacing.x2,
           children: [
             for (final option in options)
-              Semantics(
-                button: true,
-                selected: selectedMode == option.mode,
+              _AppearanceOption(
                 label: option.label,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () => ref
-                      .read(aureliaThemeModeProvider.notifier)
-                      .select(option.mode),
-                  child: AnimatedContainer(
-                    duration: reduceMotion
-                        ? Duration.zero
-                        : AureliaMotion.pageEnter,
-                    constraints: const BoxConstraints(minHeight: 44),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: AureliaSpacing.x4,
-                      vertical: AureliaSpacing.x2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: selectedMode == option.mode
-                          ? palette.foreground
-                          : palette.surface,
-                      border: Border.all(color: palette.border),
-                      borderRadius: BorderRadius.circular(AureliaRadii.control),
-                    ),
-                    child: Text(
-                      option.label,
-                      style: AureliaTypography.detail.copyWith(
-                        color: selectedMode == option.mode
-                            ? palette.canvas
-                            : palette.foreground,
-                      ),
-                    ),
-                  ),
-                ),
+                selected: selectedMode == option.mode,
+                palette: palette,
+                reduceMotion: reduceMotion,
+                onSelected: () => ref
+                    .read(aureliaThemeModeProvider.notifier)
+                    .select(option.mode),
               ),
           ],
         ),
       ],
+    );
+  }
+}
+
+class _AppearanceOption extends StatefulWidget {
+  const _AppearanceOption({
+    required this.label,
+    required this.selected,
+    required this.palette,
+    required this.reduceMotion,
+    required this.onSelected,
+  });
+
+  final String label;
+  final bool selected;
+  final AureliaPalette palette;
+  final bool reduceMotion;
+  final VoidCallback onSelected;
+
+  @override
+  State<_AppearanceOption> createState() => _AppearanceOptionState();
+}
+
+class _AppearanceOptionState extends State<_AppearanceOption> {
+  bool _showFocusHighlight = false;
+
+  void _activate() {
+    widget.onSelected();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final focusBorder = widget.palette.accent;
+
+    return FocusableActionDetector(
+      mouseCursor: SystemMouseCursors.click,
+      shortcuts: const <ShortcutActivator, Intent>{
+        SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
+        SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
+      },
+      actions: <Type, Action<Intent>>{
+        ActivateIntent: CallbackAction<ActivateIntent>(
+          onInvoke: (_) {
+            _activate();
+            return null;
+          },
+        ),
+      },
+      onShowFocusHighlight: (show) {
+        if (_showFocusHighlight != show) {
+          setState(() => _showFocusHighlight = show);
+        }
+      },
+      child: Semantics(
+        button: true,
+        selected: widget.selected,
+        label: widget.label,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _activate,
+          child: AnimatedContainer(
+            duration: widget.reduceMotion
+                ? Duration.zero
+                : AureliaMotion.pageEnter,
+            constraints: const BoxConstraints(minHeight: 44),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AureliaSpacing.x4,
+              vertical: AureliaSpacing.x2,
+            ),
+            decoration: BoxDecoration(
+              color: widget.selected
+                  ? widget.palette.foreground
+                  : widget.palette.surface,
+              border: Border.all(
+                color: _showFocusHighlight
+                    ? focusBorder
+                    : widget.palette.border,
+                width: _showFocusHighlight ? 2 : 1,
+              ),
+              borderRadius: BorderRadius.circular(AureliaRadii.control),
+            ),
+            child: Text(
+              widget.label,
+              style: AureliaTypography.detail.copyWith(
+                color: widget.selected
+                    ? widget.palette.canvas
+                    : widget.palette.foreground,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
