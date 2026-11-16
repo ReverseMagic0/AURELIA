@@ -6,7 +6,7 @@
 
 ## Project status
 
-**Bootstrap / Phase 00 — governance baseline committed; Flutter application not yet created.** A document, directory, or planned capability is not evidence that its implementation exists or has been verified.
+**Bootstrap / Phase 01 — governance baseline and initial Flutter source scaffold committed. Native host projects and executable verification are still pending.** A document, directory, or planned capability is not evidence that its implementation exists or has been verified.
 
 See:
 - [Current state](project_state/CURRENT_STATE.md)
