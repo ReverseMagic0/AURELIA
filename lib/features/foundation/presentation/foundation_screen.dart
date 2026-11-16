@@ -167,7 +167,12 @@ class _FoundationDetails extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Divider(height: 1, color: palette.border),
+              child: SizedBox(
+                height: 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(color: palette.border),
+                ),
+              ),
             ),
             _DetailRow(
               label: strings.architectureLabel,
