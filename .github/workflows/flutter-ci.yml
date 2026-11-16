@@ -32,6 +32,9 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get
 
+      - name: Show formatted test source
+        run: dart format --output=show test/app_smoke_test.dart
+
       - name: Check formatting
         run: dart format --output=none --set-exit-if-changed .
 
