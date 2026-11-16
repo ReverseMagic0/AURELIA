@@ -10,13 +10,16 @@ Order reflects dependencies and risk, not a promise of calendar dates. Each phas
 
 ## Phase 01 — Toolchain and Flutter application foundation
 - [x] Verify current stable Flutter/Dart and compatible go_router/Riverpod versions from authoritative sources.
-- [x] Create the initial Flutter application source scaffold (native host projects remain pending).
+- [x] Create the initial Flutter application source scaffold.
 - [x] Configure app entry point, router, and Riverpod composition.
-- [x] Add analyzer configuration, CI workflow, and an initial smoke test (execution pending).
-- [ ] Resolve dependencies and verify Android/iOS builds in available environments.
+- [x] Add analyzer configuration, CI workflow, and an initial smoke test.
+- [x] Resolve dependencies and pass formatter, analyzer, and automated tests on the pinned Flutter 3.50.0 toolchain.
+- [x] Generate and commit native Android/iOS host projects with Flutter 3.50.0.
+- [ ] Complete Android debug and iOS simulator build verification; Android debug build has passed, iOS is pending.
 
 ## Phase 02 — Design-system foundations
-- [ ] Define semantic color, typography, spacing, radius, elevation, and motion tokens.
+- [x] Establish initial typography, spacing, radius, and page-motion tokens; semantic colors remain in the palette scope.
+- [ ] Complete semantic color, elevation, and motion token contracts.
 - [ ] Validate licensed Arabic/Latin font choices and rendering.
 - [ ] Implement light/dark themes and system appearance.
 - [ ] Add a small, representative component set with documented contracts.

@@ -6,10 +6,7 @@ class AppStrings {
 
   final Locale locale;
 
-  static const supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('ar'),
-  ];
+  static const supportedLocales = <Locale>[Locale('en'), Locale('ar')];
 
   static const LocalizationsDelegate<AppStrings> delegate =
       _AppStringsDelegate();
@@ -36,23 +33,32 @@ class AppStrings {
       ? 'نظام Flutter منظم لبناء تجارب مميزة على iOS وAndroid، مع اهتمام بالاتساق والجودة والسلوك الأصلي لكل منصة.'
       : 'A governed Flutter foundation for distinctive iOS and Android experiences, designed around consistency, quality, and native platform behavior.';
 
-  String get platformLabel => isArabic ? 'المنصات المستهدفة' : 'TARGET PLATFORMS';
+  String get platformLabel =>
+      isArabic ? 'المنصات المستهدفة' : 'TARGET PLATFORMS';
 
   String get platformValue => 'iOS  ·  Android';
 
   String get architectureLabel =>
       isArabic ? 'أساسيات الهندسة' : 'ENGINEERING BASELINE';
 
-  String get architectureValue =>
-      isArabic ? 'معمارية واضحة · حالة مركزية' : 'Clear architecture · Owned state';
+  String get architectureValue => isArabic
+      ? 'معمارية واضحة · حالة مركزية'
+      : 'Clear architecture · Owned state';
+
+  String get appearanceLabel => isArabic ? 'المظهر' : 'APPEARANCE';
+
+  String get appearanceSystem => isArabic ? 'النظام' : 'System';
+
+  String get appearanceLight => isArabic ? 'فاتح' : 'Light';
+
+  String get appearanceDark => isArabic ? 'داكن' : 'Dark';
 
   String get integrityNote => isArabic
       ? 'لا توجد بيانات تجريبية أو وظائف وهمية في هذا العرض.'
       : 'No sample records or simulated product features are presented here.';
 
-  String get routeError => isArabic
-      ? 'تعذر فتح هذه الصفحة.'
-      : 'This page could not be opened.';
+  String get routeError =>
+      isArabic ? 'تعذر فتح هذه الصفحة.' : 'This page could not be opened.';
 }
 
 Locale resolveAppLocale(

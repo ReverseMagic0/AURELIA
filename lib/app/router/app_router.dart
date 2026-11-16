@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../design_system/aurelia_tokens.dart';
 import '../../features/foundation/presentation/foundation_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -14,8 +15,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         pageBuilder: (context, state) => CustomTransitionPage<void>(
           key: state.pageKey,
           child: const FoundationScreen(),
-          transitionDuration: const Duration(milliseconds: 180),
-          reverseTransitionDuration: const Duration(milliseconds: 140),
+          transitionDuration: AureliaMotion.pageEnter,
+          reverseTransitionDuration: AureliaMotion.pageExit,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },

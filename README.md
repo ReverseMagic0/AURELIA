@@ -4,9 +4,11 @@
 
 > AURELIA is the foundation/platform project. It is not an individual end-user app and is separate from Mobile Foundry at `C:\\afk`.
 
+> **Repository visibility is intentionally public** to enable external AI tools and human reviewers to inspect the project and provide feedback. Never commit credentials, private data, signing material, or other secrets. External feedback is advisory and must be independently verified before adoption.
+
 ## Project status
 
-**Bootstrap / Phase 01 — governance baseline and initial Flutter source scaffold committed. Native host projects and executable verification are still pending.** A document, directory, or planned capability is not evidence that its implementation exists or has been verified.
+**Bootstrap / Phase 01 — governance baseline and initial Flutter source scaffold committed. The first formatting, analyzer, and test run has passed. Native host projects and platform/device verification are still pending.** A document, directory, or planned capability is not evidence that its implementation exists or has been verified.
 
 See:
 - [Current state](project_state/CURRENT_STATE.md)

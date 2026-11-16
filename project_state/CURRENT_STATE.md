@@ -5,31 +5,41 @@ Last updated: 2026-11-16
 ## Repository
 - Repository: `ReverseMagic0/AURELIA`
 - Default branch: `main`
-- Visibility observed at bootstrap: public.
-- Initial README commit exists.
-- Governance baseline committed; review still required.
+- Working branch: `foundation/phase-01-quality-baseline`
+- Visibility: intentionally public to enable external AI and human review. This is a deliberate product decision, not a configuration mistake.
 
 ## Delivery status
 - Repository identity and scope: recorded.
-- Engineering and AI governance: initial baseline authored; review still required.
-- Flutter application source scaffold: committed (app shell, router, theme scope, manual locale delegate, one foundation screen). Native Android/iOS host projects are not yet committed.
-- Dependency constraints selected from current package metadata: Flutter 3.50.0 / Dart 3.14.0, go_router 18.1.4, flutter_riverpod 3.5.0, flutter_lints 6.0.0. Dependency resolution and lockfile generation are still pending.
-- Automated tests: one smoke test authored; not run.
-- GitHub Actions: analyze/test workflow committed; no successful run has been verified yet.
-- Android/iOS builds: none run.
-- Device verification: none run.
-- Security/performance/accessibility audits: not performed.
-- Repository file integrity: all 38 committed paths were fetched successfully for read-back; this does not validate Dart compilation or runtime behavior.
+- Engineering and AI governance: initial baseline committed; public-review handling and AI contribution rules are explicit.
+- Flutter source scaffold: committed (app shell, router, AURELIA palette scope, manual localization delegate, foundation screen, and shared design-token primitives).
+- Dart formatting: corrected in all five files reported by the formatter using the exact Flutter 3.50.0 formatter output.
+- Static analysis: passed with `flutter analyze --fatal-infos` after removing one redundant import.
+- Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
+- Dependency resolution: passed with Flutter 3.50.0. `pubspec.lock` is committed, and the declared Dart lower bound is aligned to the lockfile's `>=3.13.0` SDK requirement.
+- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build on the pre-token baseline. Latest current-head run [#43933724543](https://github.com/ReverseMagic0/AURELIA/actions/runs/43933724543) is pending after the final token cleanup; earlier runs were superseded by subsequent commits. Do not treat current-head platform builds as verified yet.
+- Native Android/iOS host projects: generated with Flutter 3.50.0 and committed (Android Gradle Kotlin DSL + iOS Xcode project).
+- Android debug APK: a prior CI build passed; current-head rebuild is pending. iOS simulator build on current head is pending. Physical-device verification is not yet run.
+- Security, performance, and accessibility audits: not yet completed.
+- PR #1 remains open. External Codex review is advisory and must be independently evaluated before accepting any suggestion.
 
 ## Important constraints
-- Separate from Mobile Foundry at `C:\\afk`.
+- Separate from Mobile Foundry at `C:\afk`.
 - Flutter / Dart, iOS and Android.
 - go_router and Riverpod.
-- No code generation, Freezed, or build_runner.
+- No Dart source code generation, Freezed, build_runner, or generated localization. Flutter CLI native-host scaffolding is allowed and reviewed.
 - AURELIA-owned visual system; Material is infrastructure only.
+- Public review is intentional. External feedback is advisory and must be verified before adoption; secrets and private data must never be committed.
+
+## Current work
+- Establishing a verifiable Flutter baseline and centralizing the first reusable design primitives before expanding the component surface.
+- Five formatter findings were corrected from SDK-produced output.
+- The first complete formatting, analyzer, and test run passed.
+- Temporary CI artifact-export steps have been removed; the workflow now contains only dependency resolution, formatting, analysis, and tests.
 
 ## Next action
-Generate and review the dependency lockfile, run formatter/analyzer/tests, then add reviewed native Android/iOS host projects and verify platform builds.
+1. Complete current-head CI verification, including Android and iOS simulator builds.
+2. Inspect external review findings and independently validate any proposed changes.
+3. Continue the design-system foundations after native build verification.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
