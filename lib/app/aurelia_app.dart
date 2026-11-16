@@ -30,9 +30,9 @@ class AureliaApp extends ConsumerWidget {
       builder: (context, child) {
         final brightness = MediaQuery.platformBrightnessOf(context);
         final effectiveBrightness = switch (themeMode) {
-          ThemeMode.system => brightness,
-          ThemeMode.light => Brightness.light,
-          ThemeMode.dark => Brightness.dark,
+          AureliaThemeMode.system => brightness,
+          AureliaThemeMode.light => Brightness.light,
+          AureliaThemeMode.dark => Brightness.dark,
         };
         final palette = effectiveBrightness == Brightness.dark
             ? AureliaPalette.dark
