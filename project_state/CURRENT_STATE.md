@@ -17,8 +17,8 @@ Last updated: 2026-11-16
 - Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
 - Dependency resolution: passed with Flutter 3.50.0. `pubspec.lock` is committed, and the declared Dart lower bound is aligned to the lockfile's `>=3.13.0` SDK requirement.
 - CI evidence: run [#43927003923](https://github.com/ReverseMagic0/AURELIA/actions/runs/43927003923) passed formatting, analysis, and tests before lockfile/workflow cleanup. The clean workflow run for the committed lockfile is currently being verified.
-- Native Android/iOS host projects: not yet committed.
-- Android/iOS builds and physical/simulator device verification: not run.
+- Native Android/iOS host projects: generated with Flutter 3.50.0 and committed (Android Gradle Kotlin DSL + iOS Xcode project).
+- Android debug APK and iOS simulator build: CI jobs have been added; results are pending. Physical-device verification is not yet run.
 - Security, performance, and accessibility audits: not yet completed.
 - PR #1 remains open. External Codex review is advisory and must be independently evaluated before accepting any suggestion.
 
@@ -40,7 +40,7 @@ Last updated: 2026-11-16
 1. Complete verification on the committed lockfile and clean CI workflow.
 2. Inspect external review findings and independently validate any proposed changes.
 3. Generate Android/iOS host projects using the pinned Flutter SDK, then verify platform builds.
-4. Continue with the design-system foundations only after the platform and localization baseline is stable.
+4. Continue with the design-system foundations only after both native build jobs pass.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
