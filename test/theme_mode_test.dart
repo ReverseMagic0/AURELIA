@@ -4,11 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('system appearance is the default and explicit choices are reactive', () {
+  test(
+    'system appearance is the default and explicit choices are reactive',
+    () {
     final container = ProviderContainer();
     addTearDown(container.dispose);
 
-    expect(container.read(aureliaThemeModeProvider), ThemeMode.system);
+      expect(container.read(aureliaThemeModeProvider), ThemeMode.system);
 
     container
         .read(aureliaThemeModeProvider.notifier)
