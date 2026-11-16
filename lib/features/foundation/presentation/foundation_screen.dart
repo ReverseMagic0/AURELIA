@@ -6,11 +6,11 @@ import '../../../design_system/aurelia_theme_mode.dart';
 import '../../../design_system/aurelia_tokens.dart';
 import '../../../localization/app_strings.dart';
 
-class FoundationScreen extends ConsumerWidget {
+class FoundationScreen extends StatelessWidget {
   const FoundationScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final strings = AppStrings.of(context);
     final palette = AureliaThemeScope.of(context);
 
@@ -98,9 +98,9 @@ class _AppearanceControl extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedMode = ref.watch(aureliaThemeModeProvider);
     final options = [
-      (mode: ThemeMode.system, label: strings.appearanceSystem),
-      (mode: ThemeMode.light, label: strings.appearanceLight),
-      (mode: ThemeMode.dark, label: strings.appearanceDark),
+      (mode: AureliaThemeMode.system, label: strings.appearanceSystem),
+      (mode: AureliaThemeMode.light, label: strings.appearanceLight),
+      (mode: AureliaThemeMode.dark, label: strings.appearanceDark),
     ];
 
     return Column(
