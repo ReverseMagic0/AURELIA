@@ -12,10 +12,10 @@ void main() {
 
       expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.system);
 
-      container.read(aureliaThemeModeProvider.notifier).select(AureliaThemeMode.dark);
+      container.read(aureliaThemeModeProvider.notifier).select(AureliaAureliaThemeMode.dark);
       expect(container.read(aureliaThemeModeProvider), ThemeMode.dark);
 
-      container.read(aureliaThemeModeProvider.notifier).select(AureliaThemeMode.light);
+      container.read(aureliaThemeModeProvider.notifier).select(AureliaAureliaThemeMode.light);
       expect(container.read(aureliaThemeModeProvider), ThemeMode.light);
     },
   );
