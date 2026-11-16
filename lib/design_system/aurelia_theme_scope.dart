@@ -47,8 +47,8 @@ class AureliaThemeScope extends InheritedWidget {
   final AureliaPalette palette;
 
   static AureliaPalette of(BuildContext context) {
-    final scope = context.dependOnInheritedWidgetOfExactType<
-        AureliaThemeScope>();
+    final scope = context
+        .dependOnInheritedWidgetOfExactType<AureliaThemeScope>();
     assert(scope != null, 'AureliaThemeScope is missing from the widget tree.');
     return scope!.palette;
   }
