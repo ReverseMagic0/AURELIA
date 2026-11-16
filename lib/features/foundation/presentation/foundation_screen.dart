@@ -162,8 +162,6 @@ class _AppearanceOptionState extends State<_AppearanceOption> {
 
   @override
   Widget build(BuildContext context) {
-    final focusBorder = widget.palette.accent;
-
     return FocusableActionDetector(
       mouseCursor: SystemMouseCursors.click,
       shortcuts: const <ShortcutActivator, Intent>{
@@ -205,7 +203,9 @@ class _AppearanceOptionState extends State<_AppearanceOption> {
                   : widget.palette.surface,
               border: Border.all(
                 color: _showFocusHighlight
-                    ? focusBorder
+                    ? (widget.selected
+                          ? widget.palette.surface
+                          : widget.palette.accent)
                     : widget.palette.border,
                 width: _showFocusHighlight ? 2 : 1,
               ),
