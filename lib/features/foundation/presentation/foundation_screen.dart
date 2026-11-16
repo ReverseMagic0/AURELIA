@@ -1,14 +1,16 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../design_system/aurelia_theme_scope.dart';
+import '../../../design_system/aurelia_theme_mode.dart';
 import '../../../design_system/aurelia_tokens.dart';
 import '../../../localization/app_strings.dart';
 
-class FoundationScreen extends StatelessWidget {
+class FoundationScreen extends ConsumerWidget {
   const FoundationScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final strings = AppStrings.of(context);
     final palette = AureliaThemeScope.of(context);
 
@@ -33,6 +35,8 @@ class FoundationScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _BrandMark(label: strings.brand, palette: palette),
+                        const SizedBox(height: AureliaSpacing.x6),
+                        _AppearanceControl(strings: strings, palette: palette),
                         const SizedBox(height: AureliaSpacing.hero),
                         Text(
                           strings.eyebrow,
@@ -80,6 +84,77 @@ class FoundationScreen extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+}
+
+
+class _AppearanceControl extends ConsumerWidget {
+  const _AppearanceControl({required this.strings, required this.palette});
+
+  final AppStrings strings;
+  final AureliaPalette palette;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedMode = ref.watch(aureliaThemeModeProvider);
+    final options = [
+      (mode: ThemeMode.system, label: strings.appearanceSystem),
+      (mode: ThemeMode.light, label: strings.appearanceLight),
+      (mode: ThemeMode.dark, label: strings.appearanceDark),
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          strings.appearanceLabel,
+          style: AureliaTypography.microLabel.copyWith(
+            color: palette.mutedForeground,
+          ),
+        ),
+        const SizedBox(height: AureliaSpacing.x2),
+        Wrap(
+          spacing: AureliaSpacing.x2,
+          children: [
+            for (final option in options)
+              Semantics(
+                button: true,
+                selected: selectedMode == option.mode,
+                label: option.label,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => ref
+                      .read(aureliaThemeModeProvider.notifier)
+                      .select(option.mode),
+                  child: AnimatedContainer(
+                    duration: AureliaMotion.pageEnter,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AureliaSpacing.x4,
+                      vertical: AureliaSpacing.x2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: selectedMode == option.mode
+                          ? palette.foreground
+                          : palette.surface,
+                      border: Border.all(color: palette.border),
+                      borderRadius:
+                          BorderRadius.circular(AureliaRadii.control),
+                    ),
+                    child: Text(
+                      option.label,
+                      style: AureliaTypography.detail.copyWith(
+                        color: selectedMode == option.mode
+                            ? palette.canvas
+                            : palette.foreground,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ],
     );
   }
 }
