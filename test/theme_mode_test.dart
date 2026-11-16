@@ -1,5 +1,4 @@
 import 'package:aurelia_foundation/design_system/aurelia_theme_mode.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -12,11 +11,12 @@ void main() {
 
       expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.system);
 
-      container.read(aureliaThemeModeProvider.notifier).select(AureliaAureliaThemeMode.dark);
-      expect(container.read(aureliaThemeModeProvider), ThemeMode.dark);
+      final controller = container.read(aureliaThemeModeProvider.notifier);
+      controller.select(AureliaThemeMode.dark);
+      expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.dark);
 
-      container.read(aureliaThemeModeProvider.notifier).select(AureliaAureliaThemeMode.light);
-      expect(container.read(aureliaThemeModeProvider), ThemeMode.light);
+      controller.select(AureliaThemeMode.light);
+      expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.light);
     },
   );
 }
