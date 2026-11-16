@@ -76,5 +76,6 @@ void main() {
       container.read(aureliaThemeModeProvider),
       AureliaThemeMode.light,
     );
-  });
+    },
+  );
 }
