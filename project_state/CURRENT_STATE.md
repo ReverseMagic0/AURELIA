@@ -15,9 +15,11 @@ Last updated: 2026-11-16
 - Flutter application source scaffold: committed (app shell, router, theme scope, manual locale delegate, one foundation screen). Native Android/iOS host projects are not yet committed.
 - Dependency constraints selected from current package metadata: Flutter 3.50.0 / Dart 3.14.0, go_router 18.1.4, flutter_riverpod 3.5.0, flutter_lints 6.0.0. Dependency resolution and lockfile generation are still pending.
 - Automated tests: one smoke test authored; not run.
+- GitHub Actions: analyze/test workflow committed; no successful run has been verified yet.
 - Android/iOS builds: none run.
 - Device verification: none run.
 - Security/performance/accessibility audits: not performed.
+- Repository file integrity: all 38 committed paths were fetched successfully for read-back; this does not validate Dart compilation or runtime behavior.
 
 ## Important constraints
 - Separate from Mobile Foundry at `C:\\afk`.
