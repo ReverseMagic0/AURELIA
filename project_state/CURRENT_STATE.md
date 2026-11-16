@@ -16,9 +16,9 @@ Last updated: 2026-11-16
 - Static analysis: passed with `flutter analyze --fatal-infos` after removing one redundant import.
 - Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
 - Dependency resolution: passed with Flutter 3.50.0. `pubspec.lock` is committed, and the declared Dart lower bound is aligned to the lockfile's `>=3.13.0` SDK requirement.
-- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build on the pre-token baseline. Latest run [#43933547536](https://github.com/ReverseMagic0/AURELIA/actions/runs/43933547536) is verifying the current head; Android build is in progress, analysis/tests are setting up, and iOS is queued.
+- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build on the pre-token baseline. Latest current-head run [#43933724543](https://github.com/ReverseMagic0/AURELIA/actions/runs/43933724543) is pending after the final token cleanup; earlier runs were superseded by subsequent commits. Do not treat current-head platform builds as verified yet.
 - Native Android/iOS host projects: generated with Flutter 3.50.0 and committed (Android Gradle Kotlin DSL + iOS Xcode project).
-- Android debug APK: a prior CI build passed; current-head rebuild is in progress. iOS simulator build on current head is queued. Physical-device verification is not yet run.
+- Android debug APK: a prior CI build passed; current-head rebuild is pending. iOS simulator build on current head is pending. Physical-device verification is not yet run.
 - Security, performance, and accessibility audits: not yet completed.
 - PR #1 remains open. External Codex review is advisory and must be independently evaluated before accepting any suggestion.
 
