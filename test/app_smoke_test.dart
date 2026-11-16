@@ -53,9 +53,7 @@ void main() {
     );
   });
 
-  testWidgets('appearance control supports keyboard activation', (
-    tester,
-  ) async {
+  testWidgets('appearance control supports keyboard activation', (tester) async {
     final container = ProviderContainer();
     addTearDown(container.dispose);
 
