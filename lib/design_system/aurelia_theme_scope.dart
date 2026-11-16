@@ -15,7 +15,7 @@ class AureliaPalette {
     canvas: Color(0xFFF5F4F0),
     surface: Color(0xFFFFFFFF),
     foreground: Color(0xFF181818),
-    mutedForeground: Color(0xFF74716B),
+    mutedForeground: Color(0xFF706D67),
     border: Color(0xFFE7E5E0),
     accent: Color(0xFF292929),
   );
