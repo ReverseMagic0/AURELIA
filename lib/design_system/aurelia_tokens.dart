@@ -40,20 +40,11 @@ abstract final class AureliaTypography {
     letterSpacing: -1.2,
   );
 
-  static const TextStyle bodyLarge = TextStyle(
-    fontSize: 16,
-    height: 1.75,
-  );
+  static const TextStyle bodyLarge = TextStyle(fontSize: 16, height: 1.75);
 
-  static const TextStyle bodyDefault = TextStyle(
-    fontSize: 16,
-    height: 1.5,
-  );
+  static const TextStyle bodyDefault = TextStyle(fontSize: 16, height: 1.5);
 
-  static const TextStyle bodySmall = TextStyle(
-    fontSize: 12,
-    height: 1.6,
-  );
+  static const TextStyle bodySmall = TextStyle(fontSize: 12, height: 1.6);
 
   static const TextStyle eyebrow = TextStyle(
     fontSize: 11,
