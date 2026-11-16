@@ -9,10 +9,10 @@ Order reflects dependencies and risk, not a promise of calendar dates. Each phas
 - [ ] Add lightweight documentation/metadata validation where it provides real value.
 
 ## Phase 01 — Toolchain and Flutter application foundation
-- [ ] Verify current stable Flutter/Dart and compatible go_router/Riverpod versions from authoritative sources.
-- [ ] Create the minimal iOS/Android Flutter application scaffold.
-- [ ] Configure bootstrap, environment boundaries, routing, and Riverpod composition.
-- [ ] Add formatter/analyzer and a first meaningful test.
+- [x] Verify current stable Flutter/Dart and compatible go_router/Riverpod versions from authoritative sources.
+- [x] Create the initial Flutter application source scaffold (native host projects remain pending).
+- [x] Configure app entry point, router, and Riverpod composition.
+- [x] Add analyzer configuration, CI workflow, and an initial smoke test (execution pending).
 - [ ] Resolve dependencies and verify Android/iOS builds in available environments.
 
 ## Phase 02 — Design-system foundations
