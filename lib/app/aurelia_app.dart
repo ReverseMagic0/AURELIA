@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../design_system/aurelia_theme_scope.dart';
 import '../design_system/aurelia_theme_mode.dart';
+import '../design_system/aurelia_theme_scope.dart';
 import '../design_system/aurelia_tokens.dart';
 import '../localization/app_strings.dart';
 import 'router/app_router.dart';
