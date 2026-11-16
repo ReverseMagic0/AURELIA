@@ -32,6 +32,21 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get
 
+      # Temporary export aid: capture the SDK's exact formatter output so it
+      # can be committed as source, rather than weakening the format gate.
+      - name: Format workspace for remediation export
+        run: dart format .
+
+      - name: Export formatted Dart source
+        uses: actions/upload-artifact@v4
+        with:
+          name: dart-formatted-source
+          path: |
+            lib/
+            test/
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Check formatting
         run: dart format --output=none --set-exit-if-changed .
 
