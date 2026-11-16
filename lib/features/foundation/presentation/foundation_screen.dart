@@ -36,11 +36,8 @@ class FoundationScreen extends StatelessWidget {
                         const SizedBox(height: AureliaSpacing.x22),
                         Text(
                           strings.eyebrow,
-                          style: TextStyle(
+                          style: AureliaTypography.eyebrow.copyWith(
                             color: palette.mutedForeground,
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 1.7,
                           ),
                         ),
                         const SizedBox(height: AureliaSpacing.x5),
@@ -48,22 +45,20 @@ class FoundationScreen extends StatelessWidget {
                           header: true,
                           child: Text(
                             strings.headline,
-                            style: TextStyle(
+                            style: (constraints.maxWidth < 420
+                                ? AureliaTypography.displayCompact
+                                : AureliaTypography.displayLarge).copyWith(
                               color: palette.foreground,
-                              ...(constraints.maxWidth < 420
-                                  ? AureliaTypography.displayCompact
-                                  : AureliaTypography.displayLarge),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: AureliaSpacing.x5),
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 590),
                           child: Text(
                             strings.introduction,
-                            style: TextStyle(
+                            style: AureliaTypography.bodyLarge.copyWith(
                               color: palette.mutedForeground,
-                              ...AureliaTypography.bodyLarge,
                             ),
                           ),
                         ),
@@ -72,9 +67,8 @@ class FoundationScreen extends StatelessWidget {
                         const SizedBox(height: AureliaSpacing.x6),
                         Text(
                           strings.integrityNote,
-                          style: TextStyle(
+                          style: AureliaTypography.bodySmall.copyWith(
                             color: palette.mutedForeground,
-                            ...AureliaTypography.bodySmall,
                           ),
                         ),
                       ],
@@ -123,11 +117,8 @@ class _BrandMark extends StatelessWidget {
         const SizedBox(width: AureliaSpacing.x3),
         Text(
           label,
-          style: TextStyle(
+          style: AureliaTypography.brand.copyWith(
             color: palette.foreground,
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 2.2,
           ),
         ),
       ],
@@ -198,20 +189,15 @@ class _DetailRow extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: AureliaTypography.microLabel.copyWith(
             color: palette.mutedForeground,
-            fontSize: 10,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 1.4,
           ),
         ),
         const SizedBox(height: AureliaSpacing.x2),
         Text(
           value,
-          style: TextStyle(
+          style: AureliaTypography.detail.copyWith(
             color: palette.foreground,
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
           ),
         ),
       ],
