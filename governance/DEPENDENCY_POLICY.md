@@ -22,4 +22,4 @@ A dependency is approved only when it solves a demonstrated need better than a r
 - Re-evaluate dependencies during upgrades and before release.
 
 ## Baseline choices
-go_router and Riverpod are confirmed product constraints. Exact compatible versions must be selected against the Flutter stable SDK and verified by dependency resolution, analysis, tests, and platform builds. Code generation is prohibited.
+go_router and Riverpod are confirmed product constraints. Initial constraints (not yet lockfile-verified): Flutter 3.50.0 / Dart 3.14.0, go_router 18.1.4, flutter_riverpod 3.5.0, and flutter_lints 6.0.0. These were checked against current package metadata on 2026-11-16. The lockfile must be generated, reviewed, and committed before treating the dependency graph as reproducible. Analysis, tests, and platform builds remain required. Code generation is prohibited.
