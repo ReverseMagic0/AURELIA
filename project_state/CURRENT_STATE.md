@@ -11,7 +11,7 @@ Last updated: 2026-11-16
 ## Delivery status
 - Repository identity and scope: recorded.
 - Engineering and AI governance: initial baseline committed; public-review handling and AI contribution rules are explicit.
-- Flutter source scaffold: committed (app shell, router, AURELIA palette scope, manual localization delegate, and foundation screen).
+- Flutter source scaffold: committed (app shell, router, AURELIA palette scope, manual localization delegate, foundation screen, and shared design-token primitives).
 - Dart formatting: corrected in all five files reported by the formatter using the exact Flutter 3.50.0 formatter output.
 - Static analysis: passed with `flutter analyze --fatal-infos` after removing one redundant import.
 - Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
@@ -31,13 +31,13 @@ Last updated: 2026-11-16
 - Public review is intentional. External feedback is advisory and must be verified before adoption; secrets and private data must never be committed.
 
 ## Current work
-- Establishing a verifiable Flutter baseline before adding more design-system surface area.
+- Establishing a verifiable Flutter baseline and centralizing the first reusable design primitives before expanding the component surface.
 - Five formatter findings were corrected from SDK-produced output.
 - The first complete formatting, analyzer, and test run passed.
 - Temporary CI artifact-export steps have been removed; the workflow now contains only dependency resolution, formatting, analysis, and tests.
 
 ## Next action
-1. Complete verification on the committed lockfile and clean CI workflow.
+1. Complete verification of the latest platform metadata and design-token changes, including the iOS simulator build.
 2. Inspect external review findings and independently validate any proposed changes.
 3. Complete the iOS simulator build and retain Android build evidence; then perform platform configuration review.
 4. Continue with the design-system foundations only after both native build jobs pass.
