@@ -6,18 +6,16 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('locale resolution selects a supported language', () {
-    final resolved = resolveAppLocale(
-      const [Locale('ar', 'EG'), Locale('en', 'US')],
-      AppStrings.supportedLocales,
-    );
+    final resolved = resolveAppLocale(const [
+      Locale('ar', 'EG'),
+      Locale('en', 'US'),
+    ], AppStrings.supportedLocales);
 
     expect(resolved, const Locale('ar'));
   });
 
   testWidgets('foundation shell renders its real baseline', (tester) async {
-    await tester.pumpWidget(
-      const ProviderScope(child: AureliaApp()),
-    );
+    await tester.pumpWidget(const ProviderScope(child: AureliaApp()));
     await tester.pumpAndSettle();
 
     expect(find.text('AURELIA'), findsOneWidget);
