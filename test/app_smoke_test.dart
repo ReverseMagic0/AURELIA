@@ -33,10 +33,9 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: AureliaApp()));
     await tester.pumpAndSettle();
 
+    final screenContext = tester.element(find.byType(FoundationScreen));
     expect(
-      AureliaThemeScope.of(
-        tester.element(find.byType(FoundationScreen)),
-      ).canvas,
+      AureliaThemeScope.of(screenContext).canvas,
       AureliaPalette.light.canvas,
     );
 
@@ -44,7 +43,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      AureliaThemeScope.of(tester.element(find.byType(FoundationScreen))).canvas,
+      AureliaThemeScope.of(screenContext).canvas,
       AureliaPalette.dark.canvas,
     );
   });
