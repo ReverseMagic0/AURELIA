@@ -5,7 +5,7 @@ enum AureliaThemeMode { system, light, dark }
 final aureliaThemeModeProvider =
     NotifierProvider<AureliaThemeModeController, AureliaThemeMode>(
       AureliaThemeModeController.new,
-);
+    );
 
 class AureliaThemeModeController extends Notifier<AureliaThemeMode> {
   @override
