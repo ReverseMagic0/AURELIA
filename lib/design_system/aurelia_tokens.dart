@@ -12,7 +12,7 @@ abstract final class AureliaSpacing {
   static const double x8 = 32;
   static const double x10 = 40;
   static const double x12 = 48;
-  static const double x22 = 88;
+  static const double hero = 88;
 }
 
 abstract final class AureliaRadii {
