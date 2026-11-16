@@ -29,10 +29,7 @@ class FoundationScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _BrandMark(
-                          label: strings.brand,
-                          palette: palette,
-                        ),
+                        _BrandMark(label: strings.brand, palette: palette),
                         const SizedBox(height: 88),
                         Text(
                           strings.eyebrow,
@@ -70,10 +67,7 @@ class FoundationScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 48),
-                        _FoundationDetails(
-                          strings: strings,
-                          palette: palette,
-                        ),
+                        _FoundationDetails(strings: strings, palette: palette),
                         const SizedBox(height: 24),
                         Text(
                           strings.integrityNote,
@@ -142,10 +136,7 @@ class _BrandMark extends StatelessWidget {
 }
 
 class _FoundationDetails extends StatelessWidget {
-  const _FoundationDetails({
-    required this.strings,
-    required this.palette,
-  });
+  const _FoundationDetails({required this.strings, required this.palette});
 
   final AppStrings strings;
   final AureliaPalette palette;
