@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../design_system/aurelia_theme_scope.dart';
+import '../design_system/aurelia_tokens.dart';
 import '../localization/app_strings.dart';
 import 'router/app_router.dart';
 
@@ -35,8 +36,8 @@ class AureliaApp extends ConsumerWidget {
           child: DefaultTextStyle(
             style: TextStyle(
               color: palette.foreground,
-              fontSize: 16,
-              height: 1.5,
+              fontSize: AureliaTypography.bodyDefault.fontSize,
+              height: AureliaTypography.bodyDefault.height,
             ),
             child: child ?? const SizedBox.shrink(),
           ),
