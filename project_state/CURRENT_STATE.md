@@ -27,7 +27,7 @@ Last updated: 2026-11-16
 - AURELIA-owned visual system; Material is infrastructure only.
 
 ## Next action
-Verify current Flutter stable and package compatibility from authoritative sources, then resolve and commit the lockfile, verify formatting/analyzer/tests, and add reviewed native Android/iOS host projects.
+Generate and review the dependency lockfile, run formatter/analyzer/tests, then add reviewed native Android/iOS host projects and verify platform builds.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
