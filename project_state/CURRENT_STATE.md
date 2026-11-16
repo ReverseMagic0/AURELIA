@@ -5,21 +5,20 @@ Last updated: 2026-11-16
 ## Repository
 - Repository: `ReverseMagic0/AURELIA`
 - Default branch: `main`
+- Working branch: `foundation/phase-01-quality-baseline`
 - Visibility observed at bootstrap: public.
-- Initial README commit exists.
-- Governance baseline committed; review still required.
 
 ## Delivery status
 - Repository identity and scope: recorded.
-- Engineering and AI governance: initial baseline authored; review still required.
+- Engineering and AI governance: initial baseline committed; review and iterative hardening remain ongoing.
 - Flutter application source scaffold: committed (app shell, router, theme scope, manual locale delegate, one foundation screen). Native Android/iOS host projects are not yet committed.
-- Dependency constraints selected from current package metadata: Flutter 3.50.0 / Dart 3.14.0, go_router 18.1.4, flutter_riverpod 3.5.0, flutter_lints 6.0.0. Dependency resolution and lockfile generation are still pending.
-- Automated tests: one smoke test authored; not run.
-- GitHub Actions: analyze/test workflow committed; no successful run has been verified yet.
+- Dependency constraints recorded in `pubspec.yaml`; dependency resolution and lockfile generation remain pending.
+- Automated tests: smoke test and focused localization tests are authored. They have not been executed in this environment.
+- GitHub Actions: analyze/test workflow is committed. A successful run for the current working branch has not yet been observed.
 - Android/iOS builds: none run.
 - Device verification: none run.
-- Security/performance/accessibility audits: not performed.
-- Repository file integrity: all 38 committed paths were fetched successfully for read-back; this does not validate Dart compilation or runtime behavior.
+- Security, performance, and accessibility audits: not performed.
+- Repository structure: the complete default-branch tree was read successfully; this is not evidence of compilation or runtime correctness.
 
 ## Important constraints
 - Separate from Mobile Foundry at `C:\\afk`.
@@ -28,8 +27,12 @@ Last updated: 2026-11-16
 - No code generation, Freezed, or build_runner.
 - AURELIA-owned visual system; Material is infrastructure only.
 
+## Current work
+- Added focused tests for locale support, regional locale resolution, fallback behavior, and English/Arabic copy.
+- Kept the change test-only; no dependency or architecture expansion was introduced.
+
 ## Next action
-Generate and review the dependency lockfile, run formatter/analyzer/tests, then add reviewed native Android/iOS host projects and verify platform builds.
+Run dependency resolution, formatter, analyzer, and tests in a Flutter 3.50-compatible environment. Then generate native host projects using the pinned Flutter SDK and verify Android/iOS builds before claiming platform readiness.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
