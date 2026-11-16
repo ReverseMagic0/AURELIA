@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final aureliaThemeModeProvider =
     NotifierProvider<AureliaThemeModeController, ThemeMode>(
-  AureliaThemeModeController.new,
+      AureliaThemeModeController.new,
 );
 
 class AureliaThemeModeController extends Notifier<ThemeMode> {
