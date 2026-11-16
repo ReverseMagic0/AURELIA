@@ -16,9 +16,9 @@ Last updated: 2026-11-16
 - Static analysis: passed with `flutter analyze --fatal-infos` after removing one redundant import.
 - Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
 - Dependency resolution: passed with Flutter 3.50.0. `pubspec.lock` is committed, and the declared Dart lower bound is aligned to the lockfile's `>=3.13.0` SDK requirement.
-- CI evidence: run [#43927003923](https://github.com/ReverseMagic0/AURELIA/actions/runs/43927003923) passed formatting, analysis, and tests before lockfile/workflow cleanup. The clean workflow run for the committed lockfile is currently being verified.
+- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build. The iOS simulator job is queued; it is not yet verified.
 - Native Android/iOS host projects: generated with Flutter 3.50.0 and committed (Android Gradle Kotlin DSL + iOS Xcode project).
-- Android debug APK and iOS simulator build: CI jobs have been added; results are pending. Physical-device verification is not yet run.
+- Android debug APK: CI build passed. iOS simulator build: job queued, result pending. Physical-device verification is not yet run.
 - Security, performance, and accessibility audits: not yet completed.
 - PR #1 remains open. External Codex review is advisory and must be independently evaluated before accepting any suggestion.
 
@@ -26,7 +26,7 @@ Last updated: 2026-11-16
 - Separate from Mobile Foundry at `C:\afk`.
 - Flutter / Dart, iOS and Android.
 - go_router and Riverpod.
-- No code generation, Freezed, or build_runner.
+- No Dart source code generation, Freezed, build_runner, or generated localization. Flutter CLI native-host scaffolding is allowed and reviewed.
 - AURELIA-owned visual system; Material is infrastructure only.
 - Public review is intentional. External feedback is advisory and must be verified before adoption; secrets and private data must never be committed.
 
@@ -39,7 +39,7 @@ Last updated: 2026-11-16
 ## Next action
 1. Complete verification on the committed lockfile and clean CI workflow.
 2. Inspect external review findings and independently validate any proposed changes.
-3. Generate Android/iOS host projects using the pinned Flutter SDK, then verify platform builds.
+3. Complete the iOS simulator build and retain Android build evidence; then perform platform configuration review.
 4. Continue with the design-system foundations only after both native build jobs pass.
 
 ## Evidence rule
