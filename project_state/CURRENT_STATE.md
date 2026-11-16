@@ -12,9 +12,9 @@ Last updated: 2026-11-16
 - Repository identity and scope: recorded.
 - Engineering and AI governance: initial baseline committed; review and iterative hardening remain ongoing.
 - Flutter application source scaffold: committed (app shell, router, theme scope, manual locale delegate, one foundation screen). Native Android/iOS host projects are not yet committed.
-- Dependency constraints recorded in `pubspec.yaml`; dependency resolution and lockfile generation remain pending.
-- Automated tests: smoke test and focused localization tests are authored. They have not been executed in this environment.
-- GitHub Actions: analyze/test workflow is committed. A successful run for the current working branch has not yet been observed.
+- Dependency constraints recorded in `pubspec.yaml`; dependency resolution succeeded in a prior CI run, but the generated lockfile is not committed yet.
+- Automated tests: smoke test and focused localization tests are authored. They have not been executed successfully in an observed CI run.
+- GitHub Actions: analyze/test workflow is committed. The latest observed main-branch run failed at Dart formatting before analyzer and tests; formatter normalization is committed on the working branch. A run for the latest working-branch commit is still pending.
 - Android/iOS builds: none run.
 - Device verification: none run.
 - Security, performance, and accessibility audits: not performed.
@@ -29,10 +29,11 @@ Last updated: 2026-11-16
 
 ## Current work
 - Added focused tests for locale support, regional locale resolution, fallback behavior, and English/Arabic copy.
-- Kept the change test-only; no dependency or architecture expansion was introduced.
+- Normalized existing Dart formatting based on the formatter failures observed in GitHub Actions.
+- No runtime behavior or dependency changes were introduced in this quality-baseline change.
 
 ## Next action
-Run dependency resolution, formatter, analyzer, and tests in a Flutter 3.50-compatible environment. Then generate native host projects using the pinned Flutter SDK and verify Android/iOS builds before claiming platform readiness.
+Verify the formatter remediation through CI, then run analyzer and tests. Commit the resolved dependency lockfile, and only then generate native host projects using the pinned Flutter SDK and verify Android/iOS builds.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
