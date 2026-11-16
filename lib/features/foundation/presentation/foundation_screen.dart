@@ -29,7 +29,10 @@ class FoundationScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _BrandMark(label: strings.brand, palette: palette),
+                        _BrandMark(
+                          label: strings.brand,
+                          palette: palette,
+                        ),
                         const SizedBox(height: 88),
                         Text(
                           strings.eyebrow,

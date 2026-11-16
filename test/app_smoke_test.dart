@@ -23,7 +23,9 @@ void main() {
     expect(find.text('AURELIA'), findsOneWidget);
     expect(find.text('iOS  ·  Android'), findsOneWidget);
     expect(
-      find.text('No sample records or simulated product features are presented here.'),
+      find.text(
+        'No sample records or simulated product features are presented here.',
+      ),
       findsOneWidget,
     );
   });

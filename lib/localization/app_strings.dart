@@ -36,7 +36,8 @@ class AppStrings {
       ? 'نظام Flutter منظم لبناء تجارب مميزة على iOS وAndroid، مع اهتمام بالاتساق والجودة والسلوك الأصلي لكل منصة.'
       : 'A governed Flutter foundation for distinctive iOS and Android experiences, designed around consistency, quality, and native platform behavior.';
 
-  String get platformLabel => isArabic ? 'المنصات المستهدفة' : 'TARGET PLATFORMS';
+  String get platformLabel =>
+      isArabic ? 'المنصات المستهدفة' : 'TARGET PLATFORMS';
 
   String get platformValue => 'iOS  ·  Android';
 
