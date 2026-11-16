@@ -15,7 +15,7 @@ Build AURELIA: a reusable, premium Flutter engineering foundation for multiple i
 7. Do not invent APIs, package capabilities, test results, device results, or compatibility claims. Verify against authoritative sources and record uncertainty.
 8. Keep one source of truth per policy or decision. Link to it rather than copying policy text.
 9. Preserve existing user work. Do not force-push, delete, overwrite, or perform destructive changes without explicit authorization.
-10. No code generation, Freezed, build_runner, or generated localization in this project unless the user explicitly changes that constraint.
+10. No Dart source code generation, Freezed, build_runner, or generated localization in this project unless the user explicitly changes that constraint. Flutter CLI scaffolding of native Android/iOS host projects is allowed when required; generated host files must be committed, reviewed, and verified.
 11. Material components may provide platform infrastructure where justified; AURELIA owns the final visual language and component contracts.
 12. Do not add a dependency until its maintenance, license, security posture, compatibility, transitive cost, and necessity have been assessed.
 13. Never log secrets, credentials, tokens, or sensitive personal data.
