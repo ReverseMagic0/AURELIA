@@ -97,6 +97,7 @@ class _AppearanceControl extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedMode = ref.watch(aureliaThemeModeProvider);
+    final reduceMotion = MediaQuery.disableAnimationsOf(context);
     final options = [
       (mode: AureliaThemeMode.system, label: strings.appearanceSystem),
       (mode: AureliaThemeMode.light, label: strings.appearanceLight),
@@ -127,7 +128,10 @@ class _AppearanceControl extends ConsumerWidget {
                       .read(aureliaThemeModeProvider.notifier)
                       .select(option.mode),
                   child: AnimatedContainer(
-                    duration: AureliaMotion.pageEnter,
+                    duration: reduceMotion
+                        ? Duration.zero
+                        : AureliaMotion.pageEnter,
+                    constraints: const BoxConstraints(minHeight: 44),
                     padding: const EdgeInsets.symmetric(
                       horizontal: AureliaSpacing.x4,
                       vertical: AureliaSpacing.x2,
