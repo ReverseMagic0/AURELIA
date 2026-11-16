@@ -72,10 +72,7 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();
 
-      expect(
-        container.read(aureliaThemeModeProvider),
-        AureliaThemeMode.light,
-      );
+      expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.light);
     },
   );
 }
