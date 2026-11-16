@@ -32,9 +32,7 @@ void main() {
     );
   });
 
-  testWidgets('appearance control switches the active palette', (
-    tester,
-  ) async {
+  testWidgets('appearance control switches the active palette', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: AureliaApp()));
     await tester.pumpAndSettle();
 
@@ -53,26 +51,25 @@ void main() {
     );
   });
 
-  testWidgets(
-    'appearance control supports keyboard activation',
-    (tester) async {
-      final container = ProviderContainer();
-      addTearDown(container.dispose);
+  testWidgets('appearance control supports keyboard activation', (
+    tester,
+  ) async {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
 
-      await tester.pumpWidget(
-        UncontrolledProviderScope(
-          container: container,
-          child: const AureliaApp(),
-        ),
-      );
-      await tester.pumpAndSettle();
+    await tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: container,
+        child: const AureliaApp(),
+      ),
+    );
+    await tester.pumpAndSettle();
 
-      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
-      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
-      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
-      await tester.pumpAndSettle();
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
 
-      expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.light);
-    },
-  );
+    expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.light);
+  });
 }
