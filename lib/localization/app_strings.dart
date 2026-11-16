@@ -45,6 +45,14 @@ class AppStrings {
       ? 'معمارية واضحة · حالة مركزية'
       : 'Clear architecture · Owned state';
 
+  String get appearanceLabel => isArabic ? 'المظهر' : 'APPEARANCE';
+
+  String get appearanceSystem => isArabic ? 'النظام' : 'System';
+
+  String get appearanceLight => isArabic ? 'فاتح' : 'Light';
+
+  String get appearanceDark => isArabic ? 'داكن' : 'Dark';
+
   String get integrityNote => isArabic
       ? 'لا توجد بيانات تجريبية أو وظائف وهمية في هذا العرض.'
       : 'No sample records or simulated product features are presented here.';
