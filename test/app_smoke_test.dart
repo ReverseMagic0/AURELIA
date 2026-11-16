@@ -34,7 +34,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      AureliaThemeScope.of(tester.element(find.byType(FoundationScreen))).canvas,
+      AureliaThemeScope.of(
+        tester.element(find.byType(FoundationScreen)),
+      ).canvas,
       AureliaPalette.light.canvas,
     );
 
@@ -46,5 +48,4 @@ void main() {
       AureliaPalette.dark.canvas,
     );
   });
-
 }
