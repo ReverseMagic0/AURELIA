@@ -33,7 +33,7 @@ class FoundationScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _BrandMark(label: strings.brand, palette: palette),
-                        const SizedBox(height: AureliaSpacing.x22),
+                        const SizedBox(height: AureliaSpacing.hero),
                         Text(
                           strings.eyebrow,
                           style: AureliaTypography.eyebrow.copyWith(
