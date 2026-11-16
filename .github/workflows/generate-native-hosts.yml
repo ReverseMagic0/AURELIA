@@ -15,14 +15,25 @@ concurrency:
 jobs:
   generate:
     name: Generate Android and iOS host projects
-    if: \${{ !hashFiles('android/build.gradle*', 'ios/Runner.xcodeproj/project.pbxproj') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Guard against overwriting existing native projects
+        id: guard
+        shell: bash
+        run: |
+          if [[ -e android || -e ios ]]; then
+            echo "should_generate=false" >> "$GITHUB_OUTPUT"
+            echo "Native project directory already exists; refusing to overwrite it."
+          else
+            echo "should_generate=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Flutter
+        if: \${{ steps.guard.outputs.should_generate == 'true' }}
         uses: subosito/flutter-action@v2
         with:
           flutter-version: 3.50.0
@@ -30,6 +41,7 @@ jobs:
           cache: true
 
       - name: Generate native host projects in isolation
+        if: \${{ steps.guard.outputs.should_generate == 'true' }}
         run: |
           flutter create \
             --platforms=android,ios \
@@ -42,6 +54,7 @@ jobs:
           cp "$RUNNER_TEMP/aurelia_native/.metadata" ./.metadata
 
       - name: Verify source and tests remain healthy
+        if: \${{ steps.guard.outputs.should_generate == 'true' }}
         run: |
           flutter pub get
           dart format --output=none --set-exit-if-changed .
@@ -49,6 +62,7 @@ jobs:
           flutter test --reporter expanded
 
       - name: Commit generated host projects
+        if: \${{ steps.guard.outputs.should_generate == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
