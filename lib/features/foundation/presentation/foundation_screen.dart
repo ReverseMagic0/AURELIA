@@ -88,7 +88,6 @@ class FoundationScreen extends ConsumerWidget {
   }
 }
 
-
 class _AppearanceControl extends ConsumerWidget {
   const _AppearanceControl({required this.strings, required this.palette});
 
