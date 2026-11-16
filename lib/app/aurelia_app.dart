@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart' show Brightness;
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../design_system/aurelia_theme_scope.dart';
+import '../localization/app_strings.dart';
+import 'router/app_router.dart';
+
+class AureliaApp extends ConsumerWidget {
+  const AureliaApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(appRouterProvider);
+
+    return WidgetsApp.router(
+      title: 'AURELIA',
+      color: const Color(0xFF181818),
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
+      supportedLocales: AppStrings.supportedLocales,
+      localizationsDelegates: const [
+        AppStrings.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      localeListResolutionCallback: resolveAppLocale,
+      builder: (context, child) {
+        final brightness = MediaQuery.platformBrightnessOf(context);
+        final palette = brightness == Brightness.dark
+            ? AureliaPalette.dark
+            : AureliaPalette.light;
+
+        return AureliaThemeScope(
+          palette: palette,
+          child: DefaultTextStyle(
+            style: TextStyle(
+              color: palette.foreground,
+              fontSize: 16,
+              height: 1.5,
+            ),
+            child: child ?? const SizedBox.shrink(),
+          ),
+        );
+      },
+    );
+  }
+}
