@@ -49,11 +49,11 @@ class FoundationScreen extends ConsumerWidget {
                           header: true,
                           child: Text(
                             strings.headline,
-                            style: (constraints.maxWidth < 420
-                                ? AureliaTypography.displayCompact
-                                : AureliaTypography.displayLarge).copyWith(
-                              color: palette.foreground,
-                            ),
+                            style:
+                                (constraints.maxWidth < 420
+                                        ? AureliaTypography.displayCompact
+                                        : AureliaTypography.displayLarge)
+                                    .copyWith(color: palette.foreground),
                           ),
                         ),
                         const SizedBox(height: AureliaSpacing.x5),
@@ -138,8 +138,7 @@ class _AppearanceControl extends ConsumerWidget {
                           ? palette.foreground
                           : palette.surface,
                       border: Border.all(color: palette.border),
-                      borderRadius:
-                          BorderRadius.circular(AureliaRadii.control),
+                      borderRadius: BorderRadius.circular(AureliaRadii.control),
                     ),
                     child: Text(
                       option.label,
@@ -192,9 +191,7 @@ class _BrandMark extends StatelessWidget {
         const SizedBox(width: AureliaSpacing.x3),
         Text(
           label,
-          style: AureliaTypography.brand.copyWith(
-            color: palette.foreground,
-          ),
+          style: AureliaTypography.brand.copyWith(color: palette.foreground),
         ),
       ],
     );
@@ -271,9 +268,7 @@ class _DetailRow extends StatelessWidget {
         const SizedBox(height: AureliaSpacing.x2),
         Text(
           value,
-          style: AureliaTypography.detail.copyWith(
-            color: palette.foreground,
-          ),
+          style: AureliaTypography.detail.copyWith(color: palette.foreground),
         ),
       ],
     );
