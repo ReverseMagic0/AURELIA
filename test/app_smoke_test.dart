@@ -1,4 +1,6 @@
 import 'package:aurelia_foundation/app/aurelia_app.dart';
+import 'package:aurelia_foundation/design_system/aurelia_theme_scope.dart';
+import 'package:aurelia_foundation/features/foundation/presentation/foundation_screen.dart';
 import 'package:aurelia_foundation/localization/app_strings.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
