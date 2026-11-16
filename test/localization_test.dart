@@ -10,22 +10,23 @@ void main() {
       expect(AppStrings.delegate.isSupported(const Locale('fr')), isFalse);
     });
 
-    test('resolves a regional Arabic locale to the supported Arabic locale', () {
-      expect(
-        resolveAppLocale(
-          const [Locale('ar', 'EG')],
-          AppStrings.supportedLocales,
-        ),
-        const Locale('ar'),
-      );
-    });
+    test(
+      'resolves a regional Arabic locale to the supported Arabic locale',
+      () {
+        expect(
+          resolveAppLocale(const [
+            Locale('ar', 'EG'),
+          ], AppStrings.supportedLocales),
+          const Locale('ar'),
+        );
+      },
+    );
 
     test('falls back to the first supported locale when none match', () {
       expect(
-        resolveAppLocale(
-          const [Locale('fr', 'FR')],
-          AppStrings.supportedLocales,
-        ),
+        resolveAppLocale(const [
+          Locale('fr', 'FR'),
+        ], AppStrings.supportedLocales),
         const Locale('en'),
       );
     });
