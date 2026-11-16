@@ -32,18 +32,13 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get
 
-      # Temporary export aid: capture the SDK's exact formatter output so it
-      # can be committed as source, rather than weakening the format gate.
-      - name: Format workspace for remediation export
-        run: dart format .
-
-      - name: Export formatted Dart source
+      # Temporary export aid: commit the exact dependency resolution produced
+      # by the pinned Flutter/Dart toolchain.
+      - name: Export resolved lockfile
         uses: actions/upload-artifact@v4
         with:
-          name: dart-formatted-source
-          path: |
-            lib/
-            test/
+          name: resolved-pubspec-lock
+          path: pubspec.lock
           if-no-files-found: error
           retention-days: 1
 
