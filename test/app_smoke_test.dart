@@ -29,4 +29,22 @@ void main() {
       findsOneWidget,
     );
   });
+  testWidgets('appearance control switches the active palette', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: AureliaApp()));
+    await tester.pumpAndSettle();
+
+    expect(
+      AureliaThemeScope.of(tester.element(find.byType(FoundationScreen))).canvas,
+      AureliaPalette.light.canvas,
+    );
+
+    await tester.tap(find.text('Dark'));
+    await tester.pumpAndSettle();
+
+    expect(
+      AureliaThemeScope.of(tester.element(find.byType(FoundationScreen))).canvas,
+      AureliaPalette.dark.canvas,
+    );
+  });
+
 }
