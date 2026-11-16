@@ -14,10 +14,12 @@ Order reflects dependencies and risk, not a promise of calendar dates. Each phas
 - [x] Configure app entry point, router, and Riverpod composition.
 - [x] Add analyzer configuration, CI workflow, and an initial smoke test.
 - [x] Resolve dependencies and pass formatter, analyzer, and automated tests on the pinned Flutter 3.50.0 toolchain.
-- [ ] Generate native Android/iOS host projects and verify platform builds in available environments.
+- [x] Generate and commit native Android/iOS host projects with Flutter 3.50.0.
+- [ ] Complete Android debug and iOS simulator build verification; Android debug build has passed, iOS is pending.
 
 ## Phase 02 — Design-system foundations
-- [ ] Define semantic color, typography, spacing, radius, elevation, and motion tokens.
+- [x] Establish initial typography, spacing, radius, and page-motion tokens; semantic colors remain in the palette scope.
+- [ ] Complete semantic color, elevation, and motion token contracts.
 - [ ] Validate licensed Arabic/Latin font choices and rendering.
 - [ ] Implement light/dark themes and system appearance.
 - [ ] Add a small, representative component set with documented contracts.
