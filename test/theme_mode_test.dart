@@ -10,12 +10,12 @@ void main() {
       final container = ProviderContainer();
       addTearDown(container.dispose);
 
-      expect(container.read(aureliaThemeModeProvider), ThemeMode.system);
+      expect(container.read(aureliaThemeModeProvider), AureliaThemeMode.system);
 
-      container.read(aureliaThemeModeProvider.notifier).select(ThemeMode.dark);
+      container.read(aureliaThemeModeProvider.notifier).select(AureliaThemeMode.dark);
       expect(container.read(aureliaThemeModeProvider), ThemeMode.dark);
 
-      container.read(aureliaThemeModeProvider.notifier).select(ThemeMode.light);
+      container.read(aureliaThemeModeProvider.notifier).select(AureliaThemeMode.light);
       expect(container.read(aureliaThemeModeProvider), ThemeMode.light);
     },
   );
