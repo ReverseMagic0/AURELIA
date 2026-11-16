@@ -7,19 +7,16 @@ void main() {
   test(
     'system appearance is the default and explicit choices are reactive',
     () {
-    final container = ProviderContainer();
-    addTearDown(container.dispose);
+      final container = ProviderContainer();
+      addTearDown(container.dispose);
 
       expect(container.read(aureliaThemeModeProvider), ThemeMode.system);
 
-    container
-        .read(aureliaThemeModeProvider.notifier)
-        .select(ThemeMode.dark);
-    expect(container.read(aureliaThemeModeProvider), ThemeMode.dark);
+      container.read(aureliaThemeModeProvider.notifier).select(ThemeMode.dark);
+      expect(container.read(aureliaThemeModeProvider), ThemeMode.dark);
 
-    container
-        .read(aureliaThemeModeProvider.notifier)
-        .select(ThemeMode.light);
-    expect(container.read(aureliaThemeModeProvider), ThemeMode.light);
-  });
+      container.read(aureliaThemeModeProvider.notifier).select(ThemeMode.light);
+      expect(container.read(aureliaThemeModeProvider), ThemeMode.light);
+    },
+  );
 }
