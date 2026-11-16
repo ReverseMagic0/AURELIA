@@ -6,10 +6,7 @@ class AppStrings {
 
   final Locale locale;
 
-  static const supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('ar'),
-  ];
+  static const supportedLocales = <Locale>[Locale('en'), Locale('ar')];
 
   static const LocalizationsDelegate<AppStrings> delegate =
       _AppStringsDelegate();
@@ -44,16 +41,16 @@ class AppStrings {
   String get architectureLabel =>
       isArabic ? 'أساسيات الهندسة' : 'ENGINEERING BASELINE';
 
-  String get architectureValue =>
-      isArabic ? 'معمارية واضحة · حالة مركزية' : 'Clear architecture · Owned state';
+  String get architectureValue => isArabic
+      ? 'معمارية واضحة · حالة مركزية'
+      : 'Clear architecture · Owned state';
 
   String get integrityNote => isArabic
       ? 'لا توجد بيانات تجريبية أو وظائف وهمية في هذا العرض.'
       : 'No sample records or simulated product features are presented here.';
 
-  String get routeError => isArabic
-      ? 'تعذر فتح هذه الصفحة.'
-      : 'This page could not be opened.';
+  String get routeError =>
+      isArabic ? 'تعذر فتح هذه الصفحة.' : 'This page could not be opened.';
 }
 
 Locale resolveAppLocale(
