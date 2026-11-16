@@ -16,9 +16,9 @@ Last updated: 2026-11-16
 - Static analysis: passed with `flutter analyze --fatal-infos` after removing one redundant import.
 - Automated tests: passed with `flutter test --reporter expanded`; includes app-shell smoke coverage and locale resolution/copy tests.
 - Dependency resolution: passed with Flutter 3.50.0. `pubspec.lock` is committed, and the declared Dart lower bound is aligned to the lockfile's `>=3.13.0` SDK requirement.
-- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build. The iOS simulator job is queued; it is not yet verified.
+- CI evidence: run [#43932025397](https://github.com/ReverseMagic0/AURELIA/actions/runs/43932025397) passed formatting, analysis, tests, and Android debug APK build on the pre-token baseline. Latest run [#43933547536](https://github.com/ReverseMagic0/AURELIA/actions/runs/43933547536) is verifying the current head; Android build is in progress, analysis/tests are setting up, and iOS is queued.
 - Native Android/iOS host projects: generated with Flutter 3.50.0 and committed (Android Gradle Kotlin DSL + iOS Xcode project).
-- Android debug APK: CI build passed. iOS simulator build: job queued, result pending. Physical-device verification is not yet run.
+- Android debug APK: a prior CI build passed; current-head rebuild is in progress. iOS simulator build on current head is queued. Physical-device verification is not yet run.
 - Security, performance, and accessibility audits: not yet completed.
 - PR #1 remains open. External Codex review is advisory and must be independently evaluated before accepting any suggestion.
 
@@ -37,10 +37,9 @@ Last updated: 2026-11-16
 - Temporary CI artifact-export steps have been removed; the workflow now contains only dependency resolution, formatting, analysis, and tests.
 
 ## Next action
-1. Complete verification of the latest platform metadata and design-token changes, including the iOS simulator build.
+1. Complete current-head CI verification, including Android and iOS simulator builds.
 2. Inspect external review findings and independently validate any proposed changes.
-3. Complete the iOS simulator build and retain Android build evidence; then perform platform configuration review.
-4. Continue with the design-system foundations only after both native build jobs pass.
+3. Continue the design-system foundations after native build verification.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
