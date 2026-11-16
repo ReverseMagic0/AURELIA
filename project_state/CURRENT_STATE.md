@@ -7,14 +7,14 @@ Last updated: 2026-11-16
 - Default branch: `main`
 - Visibility observed at bootstrap: public.
 - Initial README commit exists.
-- Governance baseline is being added in the current bootstrap change.
+- Governance baseline committed; review still required.
 
 ## Delivery status
 - Repository identity and scope: recorded.
 - Engineering and AI governance: initial baseline authored; review still required.
-- Flutter application: not yet created.
-- Dependency versions: not yet selected or resolved.
-- Automated tests: none run.
+- Flutter application source scaffold: committed (app shell, router, theme scope, manual locale delegate, one foundation screen). Native Android/iOS host projects are not yet committed.
+- Dependency constraints selected from current package metadata: Flutter 3.50.0 / Dart 3.14.0, go_router 18.1.4, flutter_riverpod 3.5.0, flutter_lints 6.0.0. Dependency resolution and lockfile generation are still pending.
+- Automated tests: one smoke test authored; not run.
 - Android/iOS builds: none run.
 - Device verification: none run.
 - Security/performance/accessibility audits: not performed.
@@ -27,7 +27,7 @@ Last updated: 2026-11-16
 - AURELIA-owned visual system; Material is infrastructure only.
 
 ## Next action
-Verify current Flutter stable and package compatibility from authoritative sources, then create the smallest real Flutter application scaffold and establish a repeatable validation path.
+Verify current Flutter stable and package compatibility from authoritative sources, then resolve and commit the lockfile, verify formatting/analyzer/tests, and add reviewed native Android/iOS host projects.
 
 ## Evidence rule
 Update this file when repository reality changes. Never convert planned work into completed work by changing wording alone.
